@@ -3,13 +3,15 @@
  * Responsabilidad única: Mostrar la tarjeta de perfil de un usuario.
  * Recibe props: name, role, avatarUrl
  */
-export function UserProfile({ name, role, avatarUrl }) {
+export function UserProfile({ name, role, avatarUrl,isOnLine,bio }) {
     return (
         <div className="user-profile-card" style={styles.card}>
             <img src={avatarUrl} alt={`Avatar de ${name}`} style={styles.avatar} />
             <div style={styles.info}>
                 <h3 style={styles.name}>{name}</h3>
+                {isOnLine ? <span>🟢 En línea</span> : <span>⚪ Desconectado</span>}
                 <p style={styles.role}>{role}</p>
+                {bio && <p style={styles.bio}>{bio}</p>}
             </div>
         </div>
     );
